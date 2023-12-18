@@ -27,9 +27,10 @@ def check_contacts(iterable: List, contacts_from_storage: List, model_dao: Conta
         if to_update_objects:
             for update_obj in to_update_objects:
                 await model_dao.update(obj_id=update_obj['id'], info=update_obj['info'])
+    loop = asyncio.get_event_loop()
 
-    asyncio.run(insert())
-    asyncio.run(update())
+    loop.run_until_complete(insert())
+    loop.run_until_complete(update())
 
 
 async def odoo_contacts():
