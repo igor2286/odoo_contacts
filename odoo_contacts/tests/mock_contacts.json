@@ -1,0 +1,71 @@
+[
+  {
+  "id": 1,
+  "info": {
+  "message_is_follower": false,
+  "message_follower_ids": [],
+  "message_partner_ids": [],
+  "message_ids": [
+  885,
+  882
+  ],
+  "has_message": true,
+  "message_needaction": false,
+  "message_needaction_counter": 0,
+  "message_has_error": false,
+  "message_has_error_counter": 0,
+  "message_attachment_count": 0,
+  "message_main_attachment_id": false,
+  "website_message_ids": [],
+  "message_has_sms_error": false,
+  "email_normalized": "matthieu.hertoghe@chift.eu",
+  "is_blacklisted": false,
+  "message_bounce": 0,
+  "activity_ids": [],
+  "activity_state": false,
+  "activity_user_id": false,
+  "activity_type_id": false,
+  "activity_type_icon": false,
+  "activity_date_deadline": false,
+  "my_activity_date_deadline": false,
+  "activity_summary": false,
+  "activity_exception_decoration": false,
+  "activity_exception_icon": false
+  }
+  },
+
+  {
+  "id": 2,
+  "info": {
+  "message_is_follower": true,
+  "message_follower_ids": [],
+  "message_partner_ids": [],
+  "message_ids": [
+  886,
+  887
+  ],
+  "has_message": false,
+  "message_needaction": false,
+  "message_needaction_counter": 0,
+  "message_has_error": false,
+  "message_has_error_counter": 0,
+  "message_attachment_count": 0,
+  "message_main_attachment_id": false,
+  "website_message_ids": [],
+  "message_has_sms_error": false,
+  "email_normalized": "igor.hertoghe@chift.eu",
+  "is_blacklisted": false,
+  "message_bounce": 1,
+  "activity_ids": [],
+  "activity_state": false,
+  "activity_user_id": false,
+  "activity_type_id": false,
+  "activity_type_icon": false,
+  "activity_date_deadline": false,
+  "my_activity_date_deadline": false,
+  "activity_summary": false,
+  "activity_exception_decoration": false,
+  "activity_exception_icon": false
+  }
+  }
+]

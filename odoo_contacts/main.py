@@ -10,10 +10,8 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 scheduler = AsyncIOScheduler()
 
 
-def create_app(config=None):
+def create_app():
     """Create fastapi app"""
-    if config == 'TESTING':
-        Settings.model_config = SettingsConfigDict(env_file="tests/.test_env")
 
     _app = FastAPI(title='Odoo Contacts')
     _app.include_router(router_user)
@@ -29,7 +27,7 @@ app = create_app()
 async def startup():
     """Start app job"""
     from odoo_contacts.cron_tasks import odoo_contacts
-    scheduler.add_job(odoo_contacts, "interval", seconds=3)
+    scheduler.add_job(odoo_contacts, "interval", minutes=45)
     scheduler.start()
 
 
