@@ -16,7 +16,7 @@ Dillinger uses a number of open source projects to work properly:
 
 ## Installation
 
-Install the dependencies and devDependencies and start the server.
+Create virtual environment  and  install dev dependencies
 
 ```sh
 python3 -m venv venv
@@ -36,14 +36,24 @@ ODOO_URL=odoo url
 ODOO_DB=odoo db  
 ODOO_USERNAME=odoo username  
 ODOO_PASSWORD= odoo password  
-SECRET_KEY= 
+SECRET_KEY=   
 ```sh
-run this in terminal and insert value to SECTER_KEY
+# Run this in terminal and insert value to SECRET_KEY 
 openssl rand -hex 32
 ```  
 ALGORITHM=Algoritm for crypt  
 LOG_LEVEL=INFO
 
+## Run alembic commands for creating tables in DB
+```sh
+alembic revision --autogenerate -m "Initial migration"
+alembic upgrade head
+```  
+## Rollback alembic revision if something went wrong
+```sh
+# If needed to rollback deeper use -2, -3 etc. instead -1
+alembic downgrade -1
+```  
 ## Start app
 The uvicorn web server is used to run FastAPI. The command to run looks like this:
 ```
