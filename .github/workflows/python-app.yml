@@ -40,4 +40,4 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
     - name: Test with pytest
       run: |
-        pytest -s - w
+        pytest -s - v
