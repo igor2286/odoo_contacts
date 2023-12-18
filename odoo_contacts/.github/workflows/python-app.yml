@@ -38,6 +38,5 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
     - name: Test with pytest
       run: |
-        ls
-        cd odoo_contacts
+        ls -l
         pytest -s -v
