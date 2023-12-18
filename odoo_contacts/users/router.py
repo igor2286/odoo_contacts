@@ -7,7 +7,7 @@ from odoo_contacts.users.schemas import SchemaUserAuth
 
 # prefix route for endpoints
 router = APIRouter(
-    prefix="/auth",
+    prefix="/api/v1/auth",
     tags=["Auth"],
 )
 
