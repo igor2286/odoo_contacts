@@ -1,0 +1,12 @@
+DB_HOST=localhost
+DB_USER=postgres
+DB_PASS=ihork
+DB_NAME=postgres
+DB_PORT=5432
+ODOO_URL=https://chift.odoo.com
+ODOO_DB=chift
+ODOO_USERNAME=a.kyrychenko@digiscorp.com
+ODOO_PASSWORD=a.kyrychenko@digiscorp.com
+SECRET_KEY=f556c9944704d976f35b27e18853f598ab29718fe735b2acc072395ddfb3a7cc
+ALGORITHM=HS256
+LOG_LEVEL=INFO
