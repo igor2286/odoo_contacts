@@ -6,3 +6,14 @@ class SchemaUserAuth(BaseModel):
 
     email: EmailStr
     password: str
+
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "email": 'odo@user.com',
+                    "password": "odoo"
+                }
+            ]
+        }
+    }
