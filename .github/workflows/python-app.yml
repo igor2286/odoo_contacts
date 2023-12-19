@@ -38,29 +38,19 @@ jobs:
     - name: 'Create envs file'
       run: |
           echo "${{ secrets.ENV_FILE }}" > .env
-          - 'command -v ssh-agent >/dev/null || ( sudo apt-get update -y && sudo apt-get install openssh-client wget gnupg -y )'
-          - wget -qO- https://get.docker.com/gpg | apt-key add -
-          - eval $(ssh-agent -s)
-          - echo ${{ secrets.KEY }}" | tr -d '\r' | ssh-add -
-          - mkdir -p ~/.ssh
-          - touch ~/.ssh/config
-          - touch ~/.ssh/known_hosts
-          - chmod -R 400 ~/.ssh
-          - ssh-keyscan ip >> ~/.ssh/known_hosts
-          - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-          
-    # # - name: Test with pytest
-    # #   run: |
-    # - name: Checkout the files
-    #   uses: actions/checkout@v2
+         
+    # - name: Test with pytest
+    #   run: |
+    - name: Checkout the files
+      uses: actions/checkout@v2
       
-    # - name: Deploy to Server 1
-    #   uses: easingthemes/ssh-deploy@main
+    - name: Deploy to Server 1
+      uses: easingthemes/ssh-deploy@main
       
-    #   env:
-    #     SSH_PRIVATE_KEY: "${{ secrets.KEY }}"
-    #     REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
-    #     REMOTE_USER: ubuntu
-    #     TARGET: /src
+      env:
+        SSH_PRIVATE_KEY: MIIEowIBAAKCAQEA9hmJKwOB+ATyXbVqYci/LgZCHT3mPpZM6xuxPDJpdE3jWpr4+EU6joiZSGYXtUu3AMgIL+BDIzDGAAeQ5j7wHBOzl9V3IbKGL674Vf983CxuxGVG4W6Wm8va2g1hhO2JcaTuCclhD8iQ3XUAF0xSSEuexuj+apaLx0jBGcCtrBESlkmJzO4dazC4vyBXKEW+5koc2k4jNghZebxLomQHXPZ/UMi1MPW+sCsD6qNC/AP4wbP2FSsZ1fcH7A/jqRNNfboNUsMCO6oA5xi43btb54UluaqJEscZ8OWiOVAFsQj3tZiruUdFKlg9v2J0YK+6SKWXJfUGRv0rkrrF/l2qLwIDAQABAoIBAQCdA1vNkrZYXCeZ/AX8j0zSe3GxIG4G3nQCyK9CfdNkPdFhXGCeXeTnTWWmmGRl6gG/QOBgU0/iYtrg5/Ldw6gD8dnydGJGoJUWVSbiD1hFTR/6s7cOWzVB/0UJO+JNIhQ/6n9oxQ/lNwyeDmjZdHtG3uBVfg/cR2K06ckxugnULewB0NBvZN8cTH54JQw8ZiqffT08mdS4fQyeFhd3/K16Zgk8RR5UWFhxnpWvS43b2N8IJNBgPscCKur0G5h9bdZyc7En4AOB0NQfnGl0Mtsxw1V/ltRH+Dy3qTVoqMnuOA/v7KECSbSGtzVJA0NINsJdCbruPX7wt0nGiz5x9CfZAoGBAP6NoietgFFeEvjAuwdTg1AoxeizVtoLU6pOf7D5nK0k/Lds7Hw/7g7u2O9a09A4r7Ds4Bi57UfU9paIT2f25+rJm2FzMGv2xXY7W2KyHBk6FGWPix3VnrMXH0YkJ6UWF4FiXWbqsXzD+5o7vNVrhgqs5pngxlD1xGYbSnUD8P/rAoGBAPd/mlKNTrdYCiWsGZ+JgvRStERacxrwpDU9D6SrSb2LINnIxatqykXnTF29FCEo7wiZHaZbjxUrBVinlGXFaqZsOoTWxHVhTiFyaU+guaiD7Tm9TKipOQz9zNGJloq/EOTnVM5eJazFxsjSygRyiHC5txEoAyO0YV3bRzdPvnHNAoGAV4JVVpKc5FwU5ZNMOK6LHAmIUAEnQHpYXtnxp+OH6zYl8uDtQ6Gus0+FIHP3EUQLkiU8vQNeAS3DP+jIc5M8E0kPs6an5NXG+GhbeEiGxF1lGa0JRE5l6mduhuxy/JvlpMMuHO1d6uhtHI6g0jXOtOjPteLCCp8Sz49eP3AFb9UCgYAMENl6Ks9qms0r1v8MywxqUtnc9zfjWVX4DnkDwyH+Lpk0ZNhWKgegbs1HSJ+BmlhE6AoNASuxkX5aOxk9+OjhIiecMEg1nL/NW6GMsz452+ylwvfIxS811e21TWrcasItFqYIxYg6qw2s3rHgk6DZNgSZvoSgqfuRMs5/ANE9BQKBgE97xIe45174YMhOYZa/rzt0tXhpbU/3QnNGVas5OT6VsVNLUB5RtMWkDfWW99vZNcn4hGdJB+xhH6D8qhEdIGS3m+J21nOk3wDDWVXkGzFSs14/mM303+UViG5ItBpChth2fDsP40922WZPdneIwdjib+3g3MzoyYNq4CnKzXLh             
+        REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
+        REMOTE_USER: ubuntu
+        TARGET: /src
       
 
