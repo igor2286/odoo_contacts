@@ -18,6 +18,6 @@ async def get_all_contacts() -> List[SchemaContact] | None:
 
 
 @router.get("/get_by_id")
-async def get_contact_by_id(contact_id: int):
+async def get_contact_by_id(contact_id: int) -> SchemaContact | None:
     """Get contact from DB by id"""
     return await ContactDAO.find_by_id(obj_id=contact_id)
