@@ -36,13 +36,15 @@ jobs:
     - name: 'Create envs file'
       run: |
           echo "${{ secrets.ENV_FILE }}" > .env
+          echo "${{ secrets.KEY }}" > AAR.pem
+          chmod 400 AAR.pem
     # - name: Test with pytest
     #   run: |
 
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
       env:
-        SSH_PRIVATE_KEY: ${ { secrets.KEY }}
+        SSH_PRIVATE_KEY: AAR.pem
         REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
         REMOTE_USER: ubuntu
         TARGET: /src
