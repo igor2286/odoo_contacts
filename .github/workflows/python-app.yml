@@ -50,7 +50,7 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       
       env:
-        SSH_PRIVATE_KEY: 'AAR.pem'
+        SSH_PRIVATE_KEY: "${{ secrets.KEY }}"
         REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
         REMOTE_USER: ubuntu
         TARGET: /src
