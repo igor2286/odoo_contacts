@@ -40,9 +40,12 @@ jobs:
           chmod 400 AAR.pem
     # - name: Test with pytest
     #   run: |
-
+    - name: Checkout the files
+      uses: actions/checkout@v2
+      
     - name: Deploy to Server 1
       uses: easingthemes/ssh-deploy@main
+      
       env:
         SSH_PRIVATE_KEY: AAR.pem
         REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
