@@ -26,33 +26,32 @@ pip install -r requirements.txt
 ## Setup Enviroment variables
 # Example
 Create .env file in odoo_contacts and set environments variable
-MODE=DEV
-LOG_LEVEL=INFO
+MODE=DEV  
+LOG_LEVEL=INFO  
 
-DB_HOST=localhost
-DB_PORT=5432
-DB_USER=postgres
-DB_PASS=postgres
-DB_NAME=postgres
+DB_HOST=localhost  
+DB_PORT=5432  
+DB_USER=postgres  
+DB_PASS=postgres  
+DB_NAME=postgres  
 
-TEST_DB_HOST=localhost
-TEST_DB_PORT=5432
-TEST_DB_USER=postgres
-TEST_DB_PASS=postgres
-TEST_DB_NAME=postgres_test
+TEST_DB_HOST=localhost  
+TEST_DB_PORT=5432  
+TEST_DB_USER=postgres  
+TEST_DB_PASS=postgres  
+TEST_DB_NAME=postgres_test  
 
-ODOO_URL=https://test.odoo.com
-ODOO_DB=test
-ODOO_USERNAME=test@corp.com
-ODOO_PASSWORD=test@corp.com
+ODOO_URL=https://test.odoo.com  
+ODOO_DB=test  
+ODOO_USERNAME=test@corp.com  
+ODOO_PASSWORD=test@corp.com  
 
-ALGORITHM=HS256
-SECRET_KEY=   
+ALGORITHM=HS256  
+SECRET_KEY=     
 ```sh
 # Run this in terminal and insert value to SECRET_KEY 
 openssl rand -hex 32
 ```  
-ALGORITHM=Algoritm for crypt  
 LOG_LEVEL=INFO
 
 ## Run alembic commands for creating tables in DB
