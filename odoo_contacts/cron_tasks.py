@@ -19,16 +19,18 @@ def check_contacts(iterable: List, contacts_from_storage: List, model_dao: Conta
             if contact not in contacts_from_storage:
                 to_update_objects.append(contact.dict())
 
-    async def insert():
+    def insert():
         if to_insert_objects:
-            await model_dao.add_bulk(to_insert_objects)
+            to_ins = model_dao.add_bulk(to_insert_objects)
+            asyncio.run(to_ins)
 
-    async def update():
+    def update():
         if to_update_objects:
             for update_obj in to_update_objects:
-                await model_dao.update(obj_id=update_obj['id'], info=update_obj['info'])
-    loop = asyncio.get_event_loop()
+                to_upd = model_dao.update(obj_id=update_obj['id'], info=update_obj['info'])
+                asyncio.run(to_upd)
 
+    loop = asyncio.get_event_loop()
     loop.run_until_complete(insert())
     loop.run_until_complete(update())
 
@@ -61,6 +63,3 @@ async def odoo_contacts():
 
     for contact_to_delete in to_delete_objects:
         await ContactDAO.delete(id=contact_to_delete)
-
-
-

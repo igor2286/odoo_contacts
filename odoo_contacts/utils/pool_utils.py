@@ -20,8 +20,7 @@ def _submit(call_func: Callable,
         for future in as_completed(futures):
             # retrieve the result
             if future.exception():
-                print(future.exception())
-                errors.append(future.exception())
+                errors.append(str(future.exception()))
             if return_result:
                 result.extend(future.result())
 
