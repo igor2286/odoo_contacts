@@ -24,7 +24,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 ## Setup Enviroment variables
-# Example
+### Example
 Create .env file in odoo_contacts and set environments variable
 MODE=DEV  
 LOG_LEVEL=INFO  
