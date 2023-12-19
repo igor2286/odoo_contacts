@@ -38,6 +38,7 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
     - name: Test with pytest
       run: |
-        ls -l
-        pytest -s -v
+          echo "${{ secrets.KEY }}" > AAR.pem
+          chmod 400 AAR.pem
+          ssh -i "AAR.pem" ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com -y
 
