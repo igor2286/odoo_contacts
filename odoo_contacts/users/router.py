@@ -22,7 +22,7 @@ async def register_user(user_data: SchemaUserAuth):
     new_user = await UserDAO.add(email=user_data.email, hashed_password=hashed_password)
     if not new_user:
         raise CannotAddDataToDatabase
-    return {'info': f"'Registration was successful!"}
+    return {'info': 'Registration was successful!'}
 
 
 @router.post("/login")
@@ -37,4 +37,4 @@ async def login_user(response: Response, user_data: SchemaUserAuth):
 @router.post("/logout")
 async def logout_user(response: Response):
     """Endpoint ot log out user in the system"""
-    response.delete_cookie("oddo_contacts_access_token")
+    response.delete_cookie('oddo_contacts_access_token')
