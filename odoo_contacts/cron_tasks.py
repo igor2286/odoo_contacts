@@ -11,12 +11,13 @@ def check_contacts(iterable: List, contacts_from_storage: List, model_dao: Conta
     """Util for adding and updating data in DB"""
     to_insert_objects, to_update_objects = [], []
     get_contact_id_list = [contact.id for contact in contacts_from_storage]
+    get_contacts_info = [contact.info for contact in contacts_from_storage]
 
     for contact in iterable:
         if contact.id not in get_contact_id_list:
             to_insert_objects.append(contact.dict())
         else:
-            if contact not in contacts_from_storage:
+            if contact.info not in get_contacts_info:
                 to_update_objects.append(contact.dict())
 
     def insert():
