@@ -38,21 +38,29 @@ jobs:
     - name: 'Create envs file'
       run: |
           echo "${{ secrets.ENV_FILE }}" > .env
-          echo "${{ secrets.KEY }}" > AAR.pem
-          chmod 400 AAR.pem
-          chmod 600 AAR.pem
-    # - name: Test with pytest
-    #   run: |
-    - name: Checkout the files
-      uses: actions/checkout@v2
+          - 'command -v ssh-agent >/dev/null || ( sudo apt-get update -y && sudo apt-get install openssh-client wget gnupg -y )'
+          - wget -qO- https://get.docker.com/gpg | apt-key add -
+          - eval $(ssh-agent -s)
+          - echo ${{ secrets.KEY }}" | tr -d '\r' | ssh-add -
+          - mkdir -p ~/.ssh
+          - touch ~/.ssh/config
+          - touch ~/.ssh/known_hosts
+          - chmod -R 400 ~/.ssh
+          - ssh-keyscan ip >> ~/.ssh/known_hosts
+          - '[[ -f /.dockerinit ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+          
+    # # - name: Test with pytest
+    # #   run: |
+    # - name: Checkout the files
+    #   uses: actions/checkout@v2
       
-    - name: Deploy to Server 1
-      uses: easingthemes/ssh-deploy@main
+    # - name: Deploy to Server 1
+    #   uses: easingthemes/ssh-deploy@main
       
-      env:
-        SSH_PRIVATE_KEY: "${{ secrets.KEY }}"
-        REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
-        REMOTE_USER: ubuntu
-        TARGET: /src
+    #   env:
+    #     SSH_PRIVATE_KEY: "${{ secrets.KEY }}"
+    #     REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
+    #     REMOTE_USER: ubuntu
+    #     TARGET: /src
       
 
