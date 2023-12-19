@@ -38,6 +38,7 @@ jobs:
           echo "${{ secrets.ENV_FILE }}" > .env
           echo "${{ secrets.KEY }}" > AAR.pem
           chmod 400 AAR.pem
+          chmod 600 AAR.pem
     # - name: Test with pytest
     #   run: |
     - name: Checkout the files
@@ -47,7 +48,7 @@ jobs:
       uses: easingthemes/ssh-deploy@main
       
       env:
-        SSH_PRIVATE_KEY: AAR.pem
+        SSH_PRIVATE_KEY: 'AAR.pem'
         REMOTE_HOST: ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com
         REMOTE_USER: ubuntu
         TARGET: /src
