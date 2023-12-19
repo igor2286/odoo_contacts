@@ -25,7 +25,7 @@ app = create_app()
 async def startup():
     """Start app job"""
     from odoo_contacts.cron_tasks import odoo_contacts
-    scheduler.add_job(odoo_contacts, "interval", seconds=3)
+    scheduler.add_job(odoo_contacts, "interval", minutes=20)
     scheduler.start()
 
 
