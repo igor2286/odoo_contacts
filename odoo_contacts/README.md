@@ -68,3 +68,8 @@ alembic downgrade -1
 The uvicorn web server is used to run FastAPI. The command to run looks like this:
 ```
 uvicorn app.main:app --reload
+```
+## Deployed on
+```
+http://16.171.133.50/docs
+```
