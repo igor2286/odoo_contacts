@@ -42,7 +42,7 @@ jobs:
         pytest -s -v
     - name: Deploy
       run: |
-        ssh -i ${{ secrets.KEY }}" ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com -y
+        ssh -i ${{ secrets.KEY }} ubuntu@ec2-16-171-133-50.eu-north-1.compute.amazonaws.com -y
         
 
         
