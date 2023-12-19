@@ -18,6 +18,10 @@ Dillinger uses a number of open source projects to work properly:
 
 Create virtual environment  and  install dev dependencies
 
+### Python version
+```
+3.10.12
+```
 ```sh
 python3 -m venv venv
 source venv/bin/activate
